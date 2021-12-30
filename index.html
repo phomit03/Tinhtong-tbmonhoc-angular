@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tính điểm trung bình - tổng</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="Ctrls">
+<h3>Nhập vào điểm toán:</h3>
+<input type="number" ng-model="math" id="math"><br>
+<h3>Nhập vào điểm lý:</h3>
+<input type="number" ng-model="phy" id="phy"><br>
+<h3>Nhập vào điểm hóa:</h3>
+<input type="number" ng-model="chem" id="chem"><br><br>
+<input type="button" value="Caculate" ng-click="Calc()"> <br>
+<h3>Điểm trung bình: {{medium}}</h3>
+<h3>Tổng điểm: {{sum}}</h3>
+
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('Ctrls', function($scope) {
+        $scope.math = 0;
+        $scope.phy = 0;
+        $scope.chem = 0;
+        $scope.medium = 0;
+        $scope.sum = 0;
+        $scope.Calc = function() {
+            $scope.sum = $scope.math + $scope.phy + $scope.chem;
+            $scope.medium = $scope.sum/3;
+        }
+    });
+</script>
+</body>
+</html>
